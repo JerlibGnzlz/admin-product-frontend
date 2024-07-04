@@ -88,7 +88,7 @@ export const updateProduct = async (data: ProductData, id: number) => {
     }
 }
 
-export const deleteProduct = async (id: Product["id"]) => {
+export const deleteProduct = async (id: number) => {
     try {
         const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`
         await axios.delete(url)

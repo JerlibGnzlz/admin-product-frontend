@@ -6,8 +6,10 @@ type Props = {
     product: Product
 }
 export const action = async ({ params }: ActionFunctionArgs) => {
-    await deleteProduct(params.id)
-    return redirect("/")
+    if (params.id !== undefined) {
+        await deleteProduct(+params.id)
+        return redirect("/")
+    }
 }
 const ProductDetail = ({ product }: Props) => {
 

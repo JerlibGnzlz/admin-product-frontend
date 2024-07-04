@@ -8,7 +8,7 @@ import ProductForm from "../components/ProductForm"
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
     if (params.id !== undefined) {
-        const producto = await getProductsById(params.id)
+        const producto = await getProductsById(+params.id)
         if (!producto) {
             return redirect("/")
         }
