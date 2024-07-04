@@ -1,4 +1,4 @@
-import { boolean, number, object, string, array, InferTupleOutput } from 'valibot';
+import { boolean, number, object, string, array, Output } from 'valibot';
 
 // import { z } from 'zod';
 
@@ -14,29 +14,29 @@ export const ProductSchema = object({
     active: boolean(),
 })
 
-// export const ProductSchemaZod = z.object({
-//     id: z.number(),
-//     name: z.string(),
-//     price: z.number(),
-//     active: z.boolean()
-// })
+export const ProductSchemaZod = object({
+    id: number(),
+    name: string(),
+    price: number(),
+    active: boolean()
+})
 
-import { z, ZodSchema } from 'zod';
+// import { z, ZodSchema } from 'zod';
 
-export const ProductSchemaZod: ZodSchema<{
-    id?: number;
-    name?: string;
-    price?: number;
-    active?: boolean;
-}> = z.object({
-    id: z.number().optional(),
-    name: z.string().optional(),
-    price: z.number().optional(),
-    active: z.boolean().optional(),
-});
+// export const ProductSchemaZod: ZodSchema<{
+//     id?: number;
+//     name?: string;
+//     price?: number;
+//     active?: boolean;
+// }> = z.object({
+//     id: z.number().optional(),
+//     name: z.string().optional(),
+//     price: z.number().optional(),
+//     active: z.boolean().optional(),
+// });
 
 
-export type Product = InferTupleOutput<typeof ProductSchema>
+export type Product = Output<typeof ProductSchema>
 
 export const ProductsSchema = array(ProductSchema)
 
