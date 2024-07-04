@@ -1,4 +1,5 @@
-import { boolean, number, object, string, array, Output } from 'valibot';
+import { boolean, number, object, string, array, InferInput } from 'valibot';
+
 
 import { z } from 'zod';
 
@@ -22,7 +23,7 @@ export const ProductSchemaZod = z.object({
 })
 
 
-export type Product = Output<typeof ProductSchema>
+export type Product = InferInput<typeof ProductSchema>
 
 export const ProductsSchema = array(ProductSchema)
 
