@@ -2,7 +2,6 @@ import { ActionFunctionArgs, Link, useLoaderData } from 'react-router-dom';
 import { getProducts, updateProductActive } from "../services/ProductServices"
 import ProductDetail from "../components/ProductDetail"
 import { type Product } from "../types"
-import request from 'supertest';
 
 
 export async function loader() {
