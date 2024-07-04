@@ -1,4 +1,4 @@
-import { safeParse } from 'valibot';
+import { safeParse, } from 'valibot';
 import { DraftProductSchema, ProductsSchema, Product, ProductSchema, ProductSchemaZod } from "../types";
 import axios from "axios";
 import { toBoolean } from '../utils';
@@ -101,9 +101,6 @@ export const updateProductActive = async (id: Product["id"]) => {
     try {
         const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`
         await axios.patch(url)
-        // const updateData = { active };
-        // ProductSchemaZod.pick({ active: true }).parse(updateData);
-
     } catch (error) {
         console.log(error)
     }
